@@ -1,0 +1,58 @@
+version: "3"
+services:
+  mongoDB:
+    image: mongo
+    container_name: pront-back-mongodb
+    restart: always
+    # env_file:
+    #   - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo123
+    ports:
+      - 28017:27017
+    volumes:
+      - /data/db
+
+  back:
+    build: ./back
+    container_name: pront-back-container
+    restart: always
+    # env_file:
+    #   - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo123
+      MONGO_URI: mongodb://mongo:mongo123@pront-back-mongodb
+      PORT: 4001
+    ports:
+      - 4001:4001
+    volumes:
+      - .:/usr/src
+    entrypoint: dockerize -wait tcp://mongoDB:27017 -timeout 20s docker-entrypoint.sh
+    command: "npm run start"
+    depends_on:
+      - mongoDB
+
+  app_react:
+    build: ./front
+    container_name: app_react
+    volumes:
+      - build_react:/var/www/html
+    depends_on:
+      - back
+
+  nginx:
+    build: ./front/nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - build_react:/var/www/html
+    depends_on:
+      - app_react
+
+volumes:
+  build_react:
+
+    # docker-compose up -d
