@@ -21,6 +21,7 @@ async function Login(req, res) {
                 cpf: user.cpf,
                 loginType: user.loginType,
                 birthday: user.birthday,
+                firstLogin: user.firstLogin,
                 token: token,
             }
             await loginRepository.insertOneNewSession(editedUser);

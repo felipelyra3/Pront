@@ -37,6 +37,23 @@ async function UpdateUserPassword(req, res) {
     }
 }
 
+async function UpdateOwnPassword(req, res) {
+    const { cpf, password } = res.locals.body;
+    try {
+        const findUserByCPF = await loginRepository.findOneByCPF(cpf);
+        if (!findUserByCPF) {
+            res.sendStatus(httpStatus.NOT_FOUND);
+            return;
+        }
+
+        const hashPassword = bcrypt.hashSync(password, 10);
+        await updateRepository.updateOneUserPassword(findUserByCPF.cpf, hashPassword);
+        res.sendStatus(httpStatus.OK);
+    } catch (error) {
+        res.sendStatus(httpStatus.NOT_FOUND);
+    }
+}
+
 async function AddNewVaccine(req, res) {
     const { _id, healthUnit, cnes, batch, manufacturer, vaccinator, date } = res.locals.body;
     try {
@@ -123,4 +140,4 @@ async function AddNewExam(req, res) {
     }
 }
 
-export { UpdateUserByCPF, UpdateUserPassword, AddNewVaccine, AddNewAllergy, AddNewExam };
+export { UpdateUserByCPF, UpdateUserPassword, UpdateOwnPassword, AddNewVaccine, AddNewAllergy, AddNewExam };

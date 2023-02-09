@@ -27,6 +27,14 @@ const updateSchema = joi.object({
     _id: joi.string().empty().required(),
 });
 
+const ownPasswordSchema = joi.object({
+    cpf: joi.string().empty().length(11).required(),
+    password: joi.string()
+        .empty()
+        .pattern(new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/))
+        .required(),
+});
+
 const vaccineSchema = joi.object({
     healthUnit: joi.string().empty().required(),
     cnes: joi.string().empty().required(),
@@ -50,4 +58,4 @@ const examSchema = joi.object({
     _id: joi.string().empty().required(),
 });
 
-export { updateSchema, vaccineSchema, allergySchema, examSchema };
+export { updateSchema, ownPasswordSchema, vaccineSchema, allergySchema, examSchema };

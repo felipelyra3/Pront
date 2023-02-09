@@ -7,7 +7,7 @@ async function updateOneNewUser(_id, name, socialName, gender, birthday, cpf, ad
 }
 
 async function updateOneUserPassword(cpf, password) {
-    await db.collection('users').updateOne({ cpf: cpf }, { $set: { password: password } });
+    await db.collection('users').updateOne({ cpf: cpf }, { $set: { password: password, firstLogin: false } });
 }
 
 async function updaneOneNewVaccine(_id, newVaccine) {

@@ -26,7 +26,11 @@ export default function Login() {
 
         post.then((answer) => {
             localStorage.setItem("session", JSON.stringify(answer.data));
-            navigate('/homepage');
+            if (answer.data.firstLogin === false) {
+                navigate('/homepage');
+            } else {
+                navigate('/changepassword');
+            }
         });
 
         post.catch((error) => {

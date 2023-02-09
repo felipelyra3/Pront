@@ -10,6 +10,11 @@ export async function updateUserPasswordByCPF(body, config) {
     return response.data;
 }
 
+export async function updateOwnPasswordByCPF(body, config) {
+    const response = await api.put('/update/user/ownpassword', body, config);
+    return response.data;
+}
+
 export async function updateAddNewVaccineApi(body, config) {
     const response = await api.put('/update/vaccine', body, config);
     return response.data;

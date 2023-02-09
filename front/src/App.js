@@ -10,6 +10,7 @@ import SearchResult from "./Components/SearchResult/SearchResult";
 import GetUser from "./Components/SearchResult/GetUser.js";
 import PatientInformation from "./Components/PatientInformation/PatientInformation.js";
 import GetPatientInformation from "./Components/PatientInformation/GetPatientInformation.js";
+import ChangePassword from "./Components/ChangePassword/ChangePassword.js";
 
 function App() {
   const logout = "https://taubatende-back.herokuapp.com/logout";
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/homepage" element={<HomePage />} />
+            <Route path="/changepassword" element={<ChangePassword />} />
             <Route path="/searchbycpf" element={<SearchByCPF />} />
             <Route path="/searchbysusnumber" element={<SearchBySUSNumber />} />
             <Route path="/registeruser" element={<RegisterUser />} />

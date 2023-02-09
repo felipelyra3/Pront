@@ -1,8 +1,22 @@
 import httpStatus from "http-status";
-import { allergySchema, examSchema, updateSchema, vaccineSchema } from "../Schemas/update.schema.js";
+import { allergySchema, examSchema, ownPasswordSchema, updateSchema, vaccineSchema } from "../Schemas/update.schema.js";
 
 async function UpdateUserSchemaValidation(req, res, next) {
     const validation = await updateSchema.validate(req.body, {
+        abortEarly: false,
+    });
+    if (validation.error) {
+        const errors = validation.error.details.map((error) => error.message);
+        res.status(httpStatus.UNPROCESSABLE_ENTITY).send({ message: errors });
+        return;
+    }
+
+    res.locals.body = req.body;
+    next();
+}
+
+async function UpdateOwnPasswordSchemaValidation(req, res, next) {
+    const validation = await ownPasswordSchema.validate(req.body, {
         abortEarly: false,
     });
     if (validation.error) {
@@ -57,4 +71,4 @@ async function ExamSchemaValidation(req, res, next) {
     next();
 }
 
-export { UpdateUserSchemaValidation, VaccineSchemaValidation, AllergySchemaValidation, ExamSchemaValidation };
+export { UpdateUserSchemaValidation, UpdateOwnPasswordSchemaValidation, VaccineSchemaValidation, AllergySchemaValidation, ExamSchemaValidation };
