@@ -56,6 +56,12 @@ yarn-error.log*
 /back/yarn-debug.log*
 /back/yarn-error.log*
 
+/back/.firebaserc
+/back/.firebase.json
+/back/api
+/back/src/index.html
+/back/src/404.html
+
 # Front-end dependencies
 /front/node_modules
 /front/.pnp
@@ -83,3 +89,5 @@ yarn-error.log*
 /front/npm-debug.log*
 /front/yarn-debug.log*
 /front/yarn-error.log*
+
+/front/README.md 
