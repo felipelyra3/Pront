@@ -57,7 +57,7 @@ yarn-error.log*
 /back/yarn-error.log*
 
 /back/.firebaserc
-/back/.firebase.json
+/back/firebase.json
 /back/api
 /back/src/index.html
 /back/src/404.html
