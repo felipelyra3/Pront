@@ -30,7 +30,6 @@ yarn-error.log*
 
 # Back-end dependencies
 /back/node_modules
-/back/api/
 /back/.pnp
 /back/.pnp.js
 
