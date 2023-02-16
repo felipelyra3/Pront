@@ -11,7 +11,7 @@ This is a prototype of an integrated and universal medical record for Brazilian 
 ## Demonstration
 
 <div align="center">
-  <a href="https://youtu.be/4O2OI48qWHs"><img src="https://i.imgur.com/ttHm9gZ.png" alt="Pront - video demonstration" /></a>
+  <a href="https://youtu.be/4O2OI48qWHs" target="_blank"><img src="https://i.imgur.com/ttHm9gZ.png" alt="Pront - video demonstration" /></a>
 </div>
 
 
