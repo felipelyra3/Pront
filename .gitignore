@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Full-stack dependencies
 /node_modules
 /.pnp
 .pnp.js
@@ -13,6 +13,7 @@
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -26,3 +27,59 @@ data/db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Back-end dependencies
+/back/node_modules
+/back/.pnp
+/back/.pnp.js
+
+# testing
+/back/coverage
+
+# production
+/back/build
+
+# misc
+/back/.DS_Store
+/back/.env
+/back/.env.local
+/back/.env.development.local
+/back/.env.test.local
+/back/.env.production.local
+/back/data
+/back/data/
+/back/data/db
+/back/data
+/back/data/db
+
+/back/npm-debug.log*
+/back/yarn-debug.log*
+/back/yarn-error.log*
+
+# Front-end dependencies
+/front/node_modules
+/front/.pnp
+/front/.pnp.js
+
+# testing
+/front/coverage
+
+# production
+/front/build
+
+# misc
+/front/.DS_Store
+/front/.env
+/front/.env.local
+/front/.env.development.local
+/front/.env.test.local
+/front/.env.production.local
+/front/data
+/front/data/
+/front/data/db
+/front/data
+/front/data/db
+
+/front/npm-debug.log*
+/front/yarn-debug.log*
+/front/yarn-error.log*
